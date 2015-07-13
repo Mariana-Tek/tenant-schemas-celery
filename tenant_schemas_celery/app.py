@@ -15,7 +15,7 @@ def switch_schema(task, kwargs, **kw):
     # Lazily load needed functions, as they import django model functions which
     # in turn load modules that need settings to be loaded and we can't
     # guarantee this module was loaded when the settings were ready.
-    from tenant_schemas.utils import get_public_schema_name, get_tenant_model
+    from django_tenants.utils import get_public_schema_name, get_tenant_model
 
     old_schema = (connection.schema_name, connection.include_public_schema)
     setattr(task, '_old_schema', old_schema)
@@ -37,7 +37,7 @@ def switch_schema(task, kwargs, **kw):
 
 def restore_schema(task, **kwargs):
     """ Switches the schema back to the one from before running the task. """
-    from tenant_schemas.utils import get_public_schema_name
+    from django_tenants.utils import get_public_schema_name
 
     schema_name, include_public = getattr(task,
                                           '_old_schema',

@@ -24,13 +24,13 @@ setup(
     ],
     description='Celery integration for django-tenant-schemas',
     install_requires=[
-        'django-tenant-schemas',
+        'django-tenants',
         'celery'
     ],
     packages=find_packages(),
     name='tenant-schemas-celery',
     license='MIT',
     long_description=long_description,
-    url='https://github.com/maciej-gol/tenant-schemas-celery',
+    url='https://github.com/Mariana-Tek/tenant-schemas-celery',
     version=version,
 )
